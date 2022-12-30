@@ -13,7 +13,7 @@ class BukuController extends Controller
             "title" => 'Semua Buku',
             "active" => 'buku',
             // "buku" => Buku::latest()->get() ini kalo buku yg pertama mau dijadiin hero post
-            "buku" => Buku::latest()->filter(request(['search']))->get()
+            "buku" => Buku::latest()->filter(request(['search']))->paginate(7)
         ]);
     }
 

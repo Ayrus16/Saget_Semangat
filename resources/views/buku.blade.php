@@ -7,10 +7,10 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <form action="/buku">
-        <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
-        <button class="btn btn-danger" type="submit">Search</button>
-        </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
+                <button class="btn btn-danger" type="submit">Search</button>
+            </div>
         </form>
     </div>
 </div>
@@ -36,6 +36,8 @@
 @else
     <p class="text-center fs-4">No post found.</p>
 @endif
+
+{{ $buku->links() }}
 
 
 @endsection
