@@ -57,17 +57,20 @@ class DatabaseSeeder extends Seeder
 
         Kategori::create([
             'nama' => 'Novel',
-            'slug' => 'novel'
+            'slug' => 'novel',
+            'penjelasan' => 'Novel adalah salah satu jenis karya sastra yang berbentuk prosa. Kisah di dalam novel merupakan hasil karya imajinasi yang membahas tentang permasalahan kehidupan seseorang atau berbagai tokoh. Cerita di dalam novel dimulai dengan munculnya persoalan yang dialami oleh tokoh dan diakhiri dengan penyelesaian masalahnya.'
         ]);
 
         Kategori::create([
             'nama' => 'Cerita Pendek',
-            'slug' => 'cerita-pendek'
+            'slug' => 'cerita-pendek',
+            'penjelasan' => 'Cerita pendek adalah bagian dari fiksi prosa yang biasanya dapat dibaca dalam sekali duduk dan berfokus pada insiden mandiri atau serangkaian insiden terkait, dengan maksud membangkitkan efek atau suasana hati tunggal.'
         ]);
 
         Kategori::create([
             'nama' => 'Tutorial',
-            'slug' => 'tutorial'
+            'slug' => 'tutorial',
+            'penjelasan' => 'Tutorial adalah metode mentransfer pengetahuan dan dapat digunakan sebagai bagian dari proses pembelajaran. Lebih interaktif dan spesifik daripada buku atau kuliah, tutorial berusaha untuk mengajar dengan contoh dan memberikan informasi untuk menyelesaikan tugas tertentu.'
         ]);
 
         Buku::factory(10)->create();
