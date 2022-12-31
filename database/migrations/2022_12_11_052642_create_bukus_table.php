@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('judul');
             $table->string('slug')->unique();
+            $table->string('gambar')->nullable();
             $table->text('kutipan');
             $table->text('isi');
             $table->timestamp('waktu_post')->nullable();

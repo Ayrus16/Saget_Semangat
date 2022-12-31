@@ -6,6 +6,7 @@ use App\Models\Buku;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 class DashboardPostContoller extends Controller
 {
@@ -17,7 +18,7 @@ class DashboardPostContoller extends Controller
     public function index()
     {
         return view('dashboard.posts.index',[
-            'buku' => Buku::all()
+            'bukus' => Buku::all()
         ]);
     }
 
@@ -29,7 +30,7 @@ class DashboardPostContoller extends Controller
     public function create()
     {
         return view('dashboard.posts.create',[
-            'kategori' => Kategori::all()
+            'kategoris' => Kategori::all()
         ]);
     }
 
@@ -41,7 +42,24 @@ class DashboardPostContoller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'judul' => 'required|max:255',
+            'slug' => 'required|unique:buku',
+            'kategori_id' => 'required',
+            'gambar' => 'image|file|max:1024',
+            'isi' => 'required'
+        ]);
+
+        if($request->file('gambar')) {
+            $validatedData['gambar'] = $request->file('gambar')->store('post-images');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['kutipan'] = Str::limit(strip_tags($request->body), 200);
+
+        Buku::create($validatedData);
+
+        return redirect('/dashboard/posts')->with('success', 'Berhasil Menambahkan Resensi Baru!');
     }
 
     /**
@@ -65,7 +83,10 @@ class DashboardPostContoller extends Controller
      */
     public function edit(Buku $post)
     {
-        //
+        return view('dashboard.posts.edit', [
+            'post' => $post,
+            'kategoris' => Kategori::all()
+        ]);
     }
 
     /**
