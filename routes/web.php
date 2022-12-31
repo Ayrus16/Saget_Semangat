@@ -52,8 +52,8 @@ Route::get('/kategori', function() {
 Route::get('/kategori/{kategori:slug}', function(Kategori $kategori) {
     return view('buku', [
         'title' => "Kategori Buku : $kategori->nama",
-        'posts' => $kategori->buku->load('penulis', 'kategori'),
-        'active' => 'kategori',
+        'buku' => $kategori->buku->load('penulis', 'kategori'),
+        'active' => 'buku',
     ]);
 });
 
@@ -67,7 +67,7 @@ Route::get('buku/{post:slug}', [BukuController::class, 'show']);
 Route::get('/penulis/{penulis:username}', function(User $penulis) {
     return view('buku', [
         'title' => "Penulis Resensi : $penulis->name",
-        'posts' => $penulis->buku->load('kategori', 'penulis'),
+        'buku' => $penulis->buku->load('kategori', 'penulis'),
         'active' => 'buku'
     ]);
 });
