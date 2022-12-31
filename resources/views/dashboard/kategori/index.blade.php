@@ -32,7 +32,7 @@
             <form action="/dashboard/kategori/{{ $kategori->slug }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
-              <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span>Hapus</button>
+              <button class="badge bg-danger border-0" onclick="return confirm('Apakah kamu yakin akan menghapus?')"><span data-feather="x-circle"></span>Hapus</button>
             </form>
           </td>
         </tr>

@@ -9,7 +9,9 @@
         <div class="container mt-4">
           <div class="row">
             <h5>{{ $kategoris->nama }}</h5>
-            <p>{{ $kategoris->penjelasan }}</p>
+            <article>
+              {!! $kategoris->penjelasan !!}
+            </article>
             <a href="/dashboard/kategori">Kembali ke Dashboard</a>
           </div>
         </div>
