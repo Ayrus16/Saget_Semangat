@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminKategoriController;
 use App\Models\Buku;
 use App\Models\User;
 use App\Models\Kategori;
@@ -99,4 +100,9 @@ Route::get('/masuk',[App\Http\Controllers\Auth\LoginController::class, 'index'])
 Route::get('/beranda', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostContoller::class, 'checkSlug'])->middleware('auth');
+
+Route::get('/dashboard/kategori/checkSlug', [AdminKategoriController::class, 'checkSlug'])->middleware('auth');
+
 Route::resource('/dashboard/posts', DashboardPostContoller::class)->middleware('auth');
+
+Route::resource('/dashboard/kategori', AdminKategoriController::class)->middleware('auth');

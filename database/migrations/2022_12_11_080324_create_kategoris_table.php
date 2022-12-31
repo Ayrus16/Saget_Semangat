@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->unique();
             $table->string('slug')->unique();
+            $table->string('penjelasan');
             $table->timestamps();
         });
     }
