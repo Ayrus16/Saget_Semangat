@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buku;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -70,9 +71,11 @@ class AdminKategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Kategori $kategori)
     {
-        //
+        return view('dashboard.kategori.edit', [
+            'kategoris' => $kategori
+        ]);
     }
 
     /**
@@ -82,9 +85,24 @@ class AdminKategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Kategori $kategori)
     {
-        //
+        $rules = [
+            'nama' => 'required|max:255',
+            'slug' => 'required|unique:kategoris',
+            'penjelasan' => 'required'
+        ];
+
+        if($request->slug != $kategori->slug) {
+            $rules['slug'] = 'required|unique:kategoris';
+        }
+        
+        $validatedData = $request->validate($rules);
+
+        Kategori::where('id', $kategori->id)
+            ->update($validatedData);
+
+        return redirect('/dashboard/kategori')->with('success', 'Kategori Berhasil Diperbarui!');
     }
 
     /**
@@ -93,9 +111,10 @@ class AdminKategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Kategori $kategori)
     {
-        //
+        Kategori::destroy($kategori->id);
+        return redirect('/dashboard/kategori')->with('success', 'Kategori Berhasil Dihapus!');
     }
 
     public function checkSlug(Request $request)
