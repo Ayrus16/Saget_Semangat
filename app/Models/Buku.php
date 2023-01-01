@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Buku extends Model
 {
+    
     use HasFactory,Sluggable;
     
     // yang gaboleh diisi
     protected $guarded = ['id'];
     protected $with = ['kategori', 'penulis'];
-
+    public $table = "bukus";
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, function($query, $search) {

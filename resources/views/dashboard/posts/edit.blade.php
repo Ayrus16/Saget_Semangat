@@ -6,7 +6,8 @@
 </div>
 
 <div class="col-lg-8">
-  <form method="POST" action="/dashboard/posts" class="mb-5" enctype="multipart/form-data">
+  <form method="POST" action="/dashboard/posts/{{ $post->slug }}" class="mb-5" enctype="multipart/form-data">
+    @method('put')
     @csrf
     <div class="mb-3">
       <label for="judul" class="form-label">Judul</label>
@@ -40,6 +41,7 @@
     </div>
     <div class="mb-3">
       <label for="gambar" class="form-label">Gambar Buku</label>
+      
       <input type="hidden" name="oldImage" value="{{ $post->gambar }}">
       @if ($post->gambar)
         <img src="{{ asset('storage/' . $post->gambar) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
