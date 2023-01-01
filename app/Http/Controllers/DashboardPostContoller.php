@@ -20,6 +20,12 @@ class DashboardPostContoller extends Controller
         return view('dashboard.posts.index',[
             'bukus' => Buku::all()
         ]);
+        
+        // Buat Resensi User Saja
+        // return view('dashboard.posts.index',[
+        //     'bukus' => Buku::where('user_id',auth()->user()->id)->get()
+        // ]);
+        
     }
 
     /**

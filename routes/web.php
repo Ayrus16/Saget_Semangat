@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminKategoriController;
 use App\Models\Buku;
 use App\Models\User;
 use App\Models\Kategori;
@@ -8,8 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardPostContoller;
+use App\Http\Controllers\AdminKategoriController;
+use App\Http\Controllers\AdminPenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +91,9 @@ Route::get('/penulis/{penulis:username}', function(User $penulis) {
 
 
 
+
+
+
 Auth::routes();
 
 Route::get('/dashboard',function(){
@@ -106,3 +111,5 @@ Route::get('/dashboard/kategori/checkSlug', [AdminKategoriController::class, 'ch
 Route::resource('/dashboard/posts', DashboardPostContoller::class)->middleware('auth');
 
 Route::resource('/dashboard/kategori', AdminKategoriController::class)->middleware('auth');
+Route::get('/dashboard/pengguna', [AdminPenggunaController::class, 'index'])->middleware('auth');
+Route::resource('/dashboard/daftar-admin', AdminController::class)->middleware('auth');

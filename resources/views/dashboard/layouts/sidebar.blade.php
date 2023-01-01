@@ -10,7 +10,7 @@
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
             <span data-feather="file" class="align-text-bottom"></span>
-            Buku
+            Resensi
           </a>
         </li>
         <li class="nav-item">
@@ -21,9 +21,17 @@
         </li>
         @if (Route::has('register'))
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/pengguna*') ? 'active' : '' }}" href="{{ route('register') }}">
+          <a class="nav-link {{ Request::is('dashboard/pengguna*') ? 'active' : '' }}" href="/dashboard/pengguna">
             <span data-feather="file" class="align-text-bottom"></span>
             Pengguna
+          </a>
+        </li>
+        @endif
+        @if (Route::has('register'))
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/daftar-admin*') ? 'active' : '' }}" href="/dashboard/daftar-admin">
+            <span data-feather="file" class="align-text-bottom"></span>
+            Daftar Admin
           </a>
         </li>
         @endif

@@ -36,7 +36,8 @@ class DatabaseSeeder extends Seeder
             'username' => 'surya',
             'email' => '203040065@mail.unpas.ac.id',
             'password' => bcrypt('1234567890'),
-            'gambar' => 'surya.png'
+            'gambar' => 'surya.png',
+            'is_admin' => true
         ]);
 
         User::create([
