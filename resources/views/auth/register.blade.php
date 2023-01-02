@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header text-light">{{ __('Daftar') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="row">
-                            <label for="name">{{ __('Name') }}</label>
+                            <label for="name">{{ __('Nama') }}</label>
                             <br/>
                             <div class="col">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="row">
-                            <label for="username">{{ __('Username') }}</label>
+                            <label for="username">{{ __('Nama Pengguna') }}</label>
                             <br/>
                             <div class="col">
                                 <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="row">
-                            <label for="email">{{ __('Email Address') }}</label>
+                            <label for="email">{{ __('Alamat Email') }}</label>
                             <br/>
                             <div class="col">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -56,7 +56,7 @@
                         
 
                         <div class="row">
-                            <label for="password">{{ __('Password') }}</label>
+                            <label for="password">{{ __('Kata Sandi') }}</label>
                             <br/>
                             <div class="col">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="row">
-                            <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm">{{ __('Konfirmasi Password') }}</label>
                             <br/>
                             <div class="col">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -79,8 +79,8 @@
 
                         <div class="row">
                             <div class="col">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button type="submit" class="btn btn-light">
+                                    {{ __('Daftar') }}
                                 </button>
                             </div>
                         </div>

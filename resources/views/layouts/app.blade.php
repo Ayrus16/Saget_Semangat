@@ -11,20 +11,22 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     {{-- Our Css --}}
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/register.css">
 
+    <link rel="icon" href="/img/logo.png">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body style="font-family: Poppins, sans-serif;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top" style="font-size: 16px;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 22px; font-weight: bold;">
+                    <img src="/img/logo.png" alt="Logo" width="50">  
                     {{ config('app.name', 'Saget') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -40,23 +42,23 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <div class="navbar-nav ms-auto">
+                        <div class="navbar-nav me-auto">
                             <a class="nav-link" href="/">Beranda</a>
                             <a class="nav-link" href="/buku">Buku</a>
                             <a class="nav-link" href="/info">Info</a>
                             <a class="nav-link" href="/kategori">Kategori</a>
-                          </div>
+                        </div>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Masuk') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
                                 </li>
                             @endif
                         @else
