@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="row gx-5 mb-5">
+    <div class="row">
     @foreach ($buku as $bk)
         <div class="col-md-4 my-2 d-flex justify-content-center">
             <div class="card" style="width: 30rem;">
