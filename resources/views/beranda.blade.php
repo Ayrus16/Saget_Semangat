@@ -85,5 +85,5 @@
     </section> -->
 
     {{-- Hak Cipta --}}
-    <footer class="bg-dark text-light text-center py-3 shadow">&copy; Saget Team | 2022</footer>
+    
 @endsection 
