@@ -106,10 +106,22 @@ Route::get('/beranda', [App\Http\Controllers\HomeController::class, 'index'])->n
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostContoller::class, 'checkSlug'])->middleware('auth');
 
-Route::get('/dashboard/kategori/checkSlug', [AdminKategoriController::class, 'checkSlug'])->middleware('auth');
+Route::get('/dashboard/kategori/checkSlug', [AdminKategoriController::class, 'checkSlug'])->middleware(
+    ['auth', 'user-access:manager'],
+    ['auth', 'user-access:admin']
+);
 
 Route::resource('/dashboard/posts', DashboardPostContoller::class)->middleware('auth');
 
-Route::resource('/dashboard/kategori', AdminKategoriController::class)->middleware('auth');
-Route::get('/dashboard/pengguna', [AdminPenggunaController::class, 'index'])->middleware('auth');
-Route::resource('/dashboard/daftar-admin', AdminController::class)->middleware('auth');
+Route::resource('/dashboard/kategori', AdminKategoriController::class)->middleware(
+    ['auth', 'user-access:manager'],
+    ['auth', 'user-access:admin']
+);
+Route::get('/dashboard/pengguna', [AdminPenggunaController::class, 'index'])->middleware(
+    ['auth', 'user-access:manager'],
+    ['auth', 'user-access:admin']
+);
+Route::resource('/dashboard/daftar-admin', AdminController::class)->middleware(['auth','user-access:manager']);
+
+
+  

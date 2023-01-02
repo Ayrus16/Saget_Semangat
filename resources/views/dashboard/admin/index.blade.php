@@ -34,8 +34,8 @@
           <td>{{ $us->username }}</td>
           <td>{{ $us->email }}</td>
           <td>
-            <a href="/dashboard/pengguna/{{ $us->username }}" class="badge bg-info"><span data-feather="eye"></span>Lihat</a>
-            <form action="/dashboard/posts/{{ $us->username }}" method="POST" class="d-inline">
+            <a href="/dashboard/daftar-admin/{{ $us->username }}" class="badge bg-info"><span data-feather="eye"></span>Lihat</a>
+            <form action="/dashboard/daftar-admin/{{ $us->username }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
               <button class="badge bg-danger border-0" onclick="return confirm('Apakah kamu yakin akan menghapus?')"><span data-feather="x-circle"></span>Hapus</button>
