@@ -1,0 +1,28 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.bg-image {
+    /* background-image: url("https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80");
+    height: 600px; */
+    background: url(/img/jumbotron.jpg) no-repeat center;
+    background-size: cover;
+    height: 600px;
+}
+
+.jtext {
+    font-size: 50px;
+}
+
+.mask {
+    height: 100%;
+}
