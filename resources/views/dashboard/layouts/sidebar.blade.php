@@ -13,12 +13,17 @@
             Resensi
           </a>
         </li>
+        
+        {{-- Untuk Admin dan Manager --}}
+        @if (auth()->user()->type == 'admin' || auth()->user()->type == 'manager')
+        
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/kategori*') ? 'active' : '' }}" href="/dashboard/kategori">
             <span data-feather="file" class="align-text-bottom"></span>
             Kategori
           </a>
         </li>
+        
         @if (Route::has('register'))
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/pengguna*') ? 'active' : '' }}" href="/dashboard/pengguna">
@@ -27,6 +32,10 @@
           </a>
         </li>
         @endif
+        {{-- untuk manager --}}
+        @if (auth()->user()->type == 'manager')
+            
+        
         @if (Route::has('register'))
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/daftar-admin*') ? 'active' : '' }}" href="/dashboard/daftar-admin">
@@ -34,6 +43,10 @@
             Daftar Admin
           </a>
         </li>
+        @endif
+        @endif
+
+
         @endif
       </ul>
 

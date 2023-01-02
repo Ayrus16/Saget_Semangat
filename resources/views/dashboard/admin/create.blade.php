@@ -6,51 +6,72 @@
 </div>
 
 <div class="col-lg-7">
-  <form method="POST" action="/dashboard/kategori" class="mb-5" enctype="multipart/form-data">
+  <form method="POST" action="/dashboard/daftar-admin" class="mb-5" enctype="multipart/form-data">
     @csrf
+    
     <div class="mb-3">
-      <label for="nama" class="form-label">Nama</label>
-      <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" required autofocus value="{{ old('nama') }}">
-      @error('nama')
+      <label for="name" class="form-label">Nama</label>
+      <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" required autofocus value="{{ old('name') }}">
+      @error('name')
        <div class="invalid-feedback">
         {{ $message }}
       </div>   
       @enderror
     </div>
     <div class="mb-3">
-      <label for="slug" class="form-label">Slug</label>
-      <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug') }}">
-      @error('slug')
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" required autofocus value="{{ old('username') }}">
+      @error('username')
        <div class="invalid-feedback">
         {{ $message }}
       </div>   
       @enderror
     </div>
     <div class="mb-3">
-        <label for="penjelasan" class="form-label">Penjelasan Kategori</label>
-        @error('body')
-        <p class="text-danger">{{ $message }}</p>
-        @enderror
-        <input id="penjelasan" type="hidden" name="penjelasan">
-        <trix-editor input="penjelasan"></trix-editor>
+      <label for="email" class="form-label">email</label>
+      <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" required autofocus value="{{ old('email') }}">
+      @error('email')
+       <div class="invalid-feedback">
+        {{ $message }}
+      </div>   
+      @enderror
     </div>
-    <button type="submit" class="btn btn-primary">Simpan Kategori</button>
+    <div class="row mb-3">
+      <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+      <div class="col-md-6">
+          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+          @error('password')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+          @enderror
+      </div>
+  </div>
+
+  <div class="row mb-3">
+      <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+      <div class="col-md-6">
+          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+      </div>
+  </div>
+  <div class="mb-3">
+    <label for="gambar" class="form-label">Gambar Buku</label>
+    <img class="img-preview img-fluid mb-3 col-sm-5">
+    <input class="form-control @error('gambar') is-invalid @enderror" type="file" id="gambar" name="gambar" onchange="previewImage()">
+    @error('gambar')
+     <div class="invalid-feedback">
+      {{ $message }}
+    </div>   
+    @enderror
+  </div>
+    <button type="submit" class="btn btn-primary">Simpan Admin</button>
   </form>
 </div>
 
-<script>
-    const name = document.querySelector('#nama');
-    const slug = document.querySelector('#slug');
-  
-    name.addEventListener('change', function() {
-      fetch('/dashboard/kategori/checkSlug?nama=' + name.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
-    });
 
-    document.addEventListener('trix-file-accept', function(e) {
-        e.preventDefault();
-    })
-</script>
+
 
 @endsection

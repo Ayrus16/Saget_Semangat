@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Models\User;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -19,9 +20,15 @@ class DashboardPostContoller extends Controller
      */
     public function index()
     {
-        return view('dashboard.posts.index',[
-            'bukus' => Buku::all()
-        ]);
+        if (auth()->user()->type == 'manager' || auth()->user()->type == 'admin') {
+            return view('dashboard.posts.index', [
+                'bukus' => Buku::all()
+            ]);
+        } else {
+            return view('dashboard.posts.index', [
+                'bukus' => Buku::where('user_id',auth()->user()->id)->get()
+            ]);
+        }
         
         // Buat Resensi User Saja
         // return view('dashboard.posts.index',[

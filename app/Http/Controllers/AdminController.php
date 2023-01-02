@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Storage;
+
+use function PHPSTORM_META\type;
 
 class AdminController extends Controller
 {
@@ -15,7 +21,7 @@ class AdminController extends Controller
     public function index()
     {
         return view('dashboard.admin.index', [
-            'admin' => User::where('is_admin', true)->get()
+            'admin' => User::where('type', 1)->get()
             
         ]);
     }
@@ -40,7 +46,23 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'username' => 'required|unique:users|max:255',
+            'email' => 'required|email:dns|unique:users|max:255',
+            'gambar' => 'image|file|max:1024',
+            'password' => ['required', 'string', 'min:8', 'confirmed'], 
+        ]);
+        $validatedData['type'] = 1;
+        $validatedData['password'] = Hash::make($request['password']);
+        if($request->file('gambar')) {
+            $validatedData['gambar'] = $request->file('gambar')->store('user-images');
+        }
+
+
+        User::create($validatedData);
+
+        return redirect('/dashboard/daftar-admin')->with('success', 'Berhasil Menambahkan Admin Baru!');
     }
 
     /**
@@ -85,6 +107,12 @@ class AdminController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if ($user->gambar){
+            Storage::delete($user->gambar);
+        }
+
+        User::destroy($user->id);
+
+        return redirect('/dashboard/daftar-admin')->with('success', 'Berhasil menghapus Admin!');
     }
 }
