@@ -6,10 +6,12 @@ use App\Models\Buku;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DashboardPostContoller extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -50,7 +52,7 @@ class DashboardPostContoller extends Controller
     {
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
-            'slug' => 'required|unique:buku',
+            'slug' => 'required|unique:bukus',
             'kategori_id' => 'required',
             'gambar' => 'image|file|max:1024',
             'isi' => 'required'
@@ -61,7 +63,7 @@ class DashboardPostContoller extends Controller
         }
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['kutipan'] = Str::limit(strip_tags($request->body), 200);
+        $validatedData['kutipan'] = Str::limit(strip_tags($request->isi), 200);
 
         Buku::create($validatedData);
 
@@ -104,7 +106,35 @@ class DashboardPostContoller extends Controller
      */
     public function update(Request $request, Buku $post)
     {
-        //
+        $rules = [
+            'judul' => 'required|max:255',
+            
+            'kategori_id' => 'required',
+            'gambar' => 'image|file|max:1024',
+            'isi' => 'required'
+        ];
+        
+
+        if($request->slug != $post->slug){
+            $rules['slug'] = 'required|unique:bukus';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if($request->file('gambar')) {
+            if ($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['gambar'] = $request->file('gambar')->store('post-images');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['kutipan'] = Str::limit(strip_tags($request->body), 200);
+
+        Buku::where('id', $post->id)
+            ->update($validatedData);
+
+        return redirect('/dashboard/posts')->with('success', 'Berhasil Mengediit Resensi!');
     }
 
     /**
@@ -115,7 +145,13 @@ class DashboardPostContoller extends Controller
      */
     public function destroy(Buku $post)
     {
-        //
+        if ($post->gambar){
+            Storage::delete($post->gambar);
+        }
+
+        Buku::destroy($post->id);
+
+        return redirect('/dashboard/posts')->with('success', 'Berhasil menghapus! resensi');
     }
 
     public function checkSlug(Request $request){
