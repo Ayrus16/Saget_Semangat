@@ -1,19 +1,19 @@
 {{-- Navbar --}}
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
   <div class="container">
     <a class="navbar-brand" href="/">Saget</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav ms-auto">
         <a class="nav-link {{ ($active === "beranda") ? 'active' : '' }}" href="/">Beranda</a>
         <a class="nav-link {{ ($active === "buku") ? 'active' : '' }}" href="/buku">Buku</a>
         <a class="nav-link {{ ($active === "info") ? 'active' : '' }}" href="/info">Info</a>
         <a class="nav-link {{ ($active === "kategori") ? 'active' : '' }}" href="/kategori">Kategori</a>
       </div>
 
-      <div class="navbar-nav ms-auto">
+      <div class="navbar-nav">
           {{-- @auth
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,8 +48,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                      onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

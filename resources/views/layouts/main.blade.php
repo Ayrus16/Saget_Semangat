@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     {{-- My Style --}}
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
 
     @include('partials.navbar')
 
-    <div class="container mt-4">
+    <div style="padding-top: 55px;">
       @yield('container')
     </div>
 
