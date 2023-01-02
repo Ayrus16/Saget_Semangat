@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/logo.png">
   </head>
   <body>
 

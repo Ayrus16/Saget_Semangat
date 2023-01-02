@@ -38,7 +38,7 @@
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-4">Umum</h5>
 
-          <ul class="list-unstyled">
+          <ul class="list-unstyled text-start">
             <li class="mb-2">
               <a href="/" class="text-dark" style="text-decoration: none;"><i class="fa-solid fa-book pe-3"></i></i>Beranda</a>
             </li>
@@ -68,7 +68,7 @@
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-4">Khusus</h5>
 
-          <ul class="list-unstyled">
+          <ul class="list-unstyled text-start">
             <li class="mb-2">
               <p class="text-dark" style="text-decoration: none;"><i class="fa-solid fa-book pe-3"></i>Resensi</p>
             </li>
@@ -95,7 +95,7 @@
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-4">Contact</h5>
 
-          <ul class="list-unstyled">
+          <ul class="list-unstyled text-start">
             <li>
               <p><i class="fas fa-map-marker-alt pe-2"></i>Bandung, Jawa Barat</p>
             </li>
@@ -115,7 +115,7 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
-      © 2020 Copyright: Saget.
+      © 2022 Copyright: Saget.
     </div>
     <!-- Copyright -->
   </footer>

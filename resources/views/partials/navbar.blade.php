@@ -1,7 +1,10 @@
 {{-- Navbar --}}
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
   <div class="container">
-    <a class="navbar-brand" href="/">Saget</a>
+    <a class="navbar-brand" href="/">
+      <img src="/img/logo.png" alt="Logo" width="50">  
+      Saget
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

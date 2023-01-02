@@ -3,7 +3,7 @@
 
 @section('container')
 
-  <section class="container text-center">
+  <section class="container text-center mt-5">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Informasi Tim Saget</h1>
