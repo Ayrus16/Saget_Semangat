@@ -24,9 +24,9 @@
                 <img src="https://source.unsplash.com/500x400/?{{ $bk->kategori->nama }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h2><a href="/buku/{{ $bk->slug }}" class="text-decoration-none">{{ $bk->judul }}</a></h2>
-                    <h6>Dari : <a href="/penulis/{{ $bk->penulis->username }}" class="text-decoration-none">{{ $bk->penulis->name }}</a> | <a href="/kategori/{{ $bk->kategori->slug }}" class="text-decoration-none">{{ $bk->kategori->nama }}</a></h6>
-                    {{ $bk->kutipan }}
-                    <p>{{ $bk->kutipan }}</p>
+                    <h6>Resensi dari : <a href="/penulis/{{ $bk->penulis->username }}" class="text-decoration-none">{{ $bk->penulis->name }}</a> | <a href="/kategori/{{ $bk->kategori->slug }}" class="text-decoration-none">{{ $bk->kategori->nama }}</a></h6>
+                    {!! $bk->kutipan !!}
+                    
                     <a href="/buku/{{ $bk->slug }}" class="text-decoration-none">Baca lebih banyak..</a>
                 </div>
             </div>

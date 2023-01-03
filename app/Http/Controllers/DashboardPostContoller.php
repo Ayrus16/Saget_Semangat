@@ -70,7 +70,7 @@ class DashboardPostContoller extends Controller
         }
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['kutipan'] = Str::limit(strip_tags($request->isi), 200);
+        $validatedData['kutipan'] = Str::limit(strip_tags($request->isi), 100);
 
         Buku::create($validatedData);
 
@@ -136,7 +136,7 @@ class DashboardPostContoller extends Controller
         }
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['kutipan'] = Str::limit(strip_tags($request->body), 200);
+        $validatedData['kutipan'] = Str::limit(strip_tags($request->isi), 100);
 
         Buku::where('id', $post->id)
             ->update($validatedData);

@@ -9,7 +9,9 @@ use App\Models\Buku;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
 
 class User extends Authenticatable
 {
@@ -59,5 +61,9 @@ class User extends Authenticatable
         return new Attribute(
             get: fn($value) => ["user", "admin", "manager"][$value]
         );
+    }
+    public function getRouteKeyName()
+    {
+        return 'username';
     }
 }
