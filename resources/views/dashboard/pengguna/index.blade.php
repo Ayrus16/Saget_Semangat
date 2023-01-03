@@ -22,17 +22,17 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($pengguna as $us)
+      @foreach ($pengguna as $user)
       <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $us->name }}</td>
-          <td>{{ $us->email }}</td>
+          <td>{{ $user->name }}</td>
+          <td>{{ $user->email }}</td>
           <td>
-            <a href="/dashboard/pengguna/{{ $us->username }}" class="badge bg-info"><span data-feather="eye"></span>Lihat</a>
-            <form action="/dashboard/pengguna/{{ $us->username }}" method="POST" class="d-inline">
+            <a href="/dashboard/pengguna/{{ $user->username }}" class="badge bg-info"><i class="bi bi-eye"></i></a>
+            <form action="/dashboard/admin/pengguna/{{ $user->id }}" method="post" class="d-inline">
               @method('delete')
               @csrf
-              <button class="badge bg-danger border-0" onclick="return confirm('Apakah kamu yakin akan menghapus?')"><span data-feather="x-circle"></span>Hapus</button>
+              <button class="badge bg-danger border-0" onclick="return confirm('Apakah kamu yakin akan menghapus?')"><i class="bi bi-trash3"></i></button>
             </form>
           </td>
       </tr>

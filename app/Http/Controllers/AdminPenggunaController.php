@@ -23,6 +23,8 @@ class AdminPenggunaController extends Controller
         ]);
     }
 
+    
+
     public function destroy(User $user)
     {
         User::destroy($user->id);
