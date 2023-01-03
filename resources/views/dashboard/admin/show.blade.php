@@ -8,9 +8,9 @@
 
         <div class="container mt-4">
           <div class="row">
-            <h5>{{ $user->name }}</h5>
-            <h5>{{ $user->Username }}</h5>
-            <h5>{{ $user->Email }}</h5>
+            <h5>{{ $admin->name }}</h5>
+            <h5>{{ $admin->username }}</h5>
+            <h5>{{ $admin->email }}</h5>
             <article>
               
             </article>
