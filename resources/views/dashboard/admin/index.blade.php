@@ -10,8 +10,8 @@
       {{ session('success') }}
     </div>
   @endif
-  <a href="/dashboard/daftar-admin/create" class="btn btn-primary mb-3">tambah</a>
-<div class="table-responsive col-lg-8">
+  <a href="/dashboard/daftar-admin/create" class="btn btn-primary mb-3">Tambah Admin</a>
+<div class="table-responsive col-lg-10">
   <table class="table table-striped table-sm">
     <thead>
       <tr>
@@ -25,7 +25,7 @@
     </thead>
     <tbody>
       @foreach ($admin as $user)
-      <tr>
+      <tr >
           <td>{{ $loop->iteration }}</td>
           <td>
             <img width="50" src="/img/{{ $user->gambar }}" class="mb-4" alt="">
@@ -34,11 +34,11 @@
           <td>{{ $user->username }}</td>
           <td>{{ $user->email }}</td>
           <td>
-            <a href="/dashboard/profil/{{ $user->username }}" class="badge bg-info"><span data-feather="eye"></span>Lihat</a>
-            <form action="/dashboard/daftar-admin/{{ $user->username }}" method="POST" class="d-inline">
+            <a href="/dashboard/profil/{{ $user->username }}" class="badge bg-info"><i class="bi bi-eye"></i></a>
+            <form action="/dashboard/daftar-admin/{{ $user->username }}" method="POST" class="d-inline ">
               @method('delete')
               @csrf
-              <button class="badge bg-danger border-0" onclick="return confirm('Apakah kamu yakin akan menghapus?')"><span data-feather="x-circle"></span>Hapus</button>
+              <button class="badge bg-danger border-0" onclick="return confirm('Apakah kamu yakin akan menghapus?')"><i class="bi bi-trash3"></i></button>
             </form>
           </td>
       </tr>

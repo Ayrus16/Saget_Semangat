@@ -12,11 +12,13 @@
             <article>
               {!! $kategoris->penjelasan !!}
             </article>
-            <a href="/dashboard/kategori">Kembali ke Dashboard</a>
+
           </div>
         </div>
 
       </div>
     </div>
+    <a href="/dashboard/kategori" class="btn btn-primary">Kembali</a>
   </div>
+  
 @endsection

@@ -7,6 +7,10 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
 
+      <!-- Font -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
     
 
     
@@ -24,8 +28,12 @@
     <script type="text/javascript" src="/js/trix.js"></script>
 
     <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
       trix-toolbar [data-trix-button-group="file-tools"] {
         display: none;
+
       }
     </style>
   </head>

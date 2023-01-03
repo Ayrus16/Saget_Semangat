@@ -97,7 +97,11 @@ Route::get('/penulis/{penulis:username}', function(User $penulis) {
 Auth::routes();
 
 Route::get('/dashboard',function(){
-    return view('dashboard.index');
+    return view('dashboard.index',[
+            'jumlBuku' => Buku::count(),
+            'jumlUser'=> User::count(),
+            'jmlKate' => Kategori::count()
+    ]);
 })->middleware('auth');
 
 Route::get('/masuk',[App\Http\Controllers\Auth\LoginController::class, 'index']);
