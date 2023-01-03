@@ -48,6 +48,12 @@
 
 
         @endif
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/">
+            <span data-feather="file" class="align-text-bottom"></span>
+            Kembali ke beranda
+          </a>
+        </li>
       </ul>
 
 

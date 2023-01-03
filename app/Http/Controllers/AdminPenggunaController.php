@@ -11,8 +11,13 @@ class AdminPenggunaController extends Controller
     public function index()
     {
         return view('dashboard.pengguna.index', [
-            'pengguna' => User::where('is_admin', false)->get()
+            'pengguna' => User::where('type', 0)->get()
             
         ]);
+    }
+    public function destroy(User $user)
+    {
+        User::destroy($user->id);
+        return redirect('/dashboard/pengguna')->with('success', 'Pengguna Berhasil Dihapus!');
     }
 }

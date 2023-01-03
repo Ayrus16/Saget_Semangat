@@ -73,7 +73,9 @@ class AdminController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('dashboard.admin.show', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -107,10 +109,8 @@ class AdminController extends Controller
      */
     public function destroy(User $user)
     {
-        if ($user->gambar){
-            Storage::delete($user->gambar);
-        }
-
+        
+        
         User::destroy($user->id);
 
         return redirect('/dashboard/daftar-admin')->with('success', 'Berhasil menghapus Admin!');
