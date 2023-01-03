@@ -15,6 +15,14 @@ class AdminPenggunaController extends Controller
             
         ]);
     }
+
+    public function show(User $user)
+    {
+        return view('dashboard.pengguna.show', [
+            'pengguna' => $user
+        ]);
+    }
+
     public function destroy(User $user)
     {
         User::destroy($user->id);

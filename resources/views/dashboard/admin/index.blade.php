@@ -34,7 +34,7 @@
           <td>{{ $user->username }}</td>
           <td>{{ $user->email }}</td>
           <td>
-            <a href="/dashboard/daftar-admin/{{ $user->id }}" class="badge bg-info"><span data-feather="eye"></span>Lihat</a>
+            <a href="/dashboard/profil/{{ $user->username }}" class="badge bg-info"><span data-feather="eye"></span>Lihat</a>
             <form action="/dashboard/daftar-admin/{{ $user->username }}" method="POST" class="d-inline">
               @method('delete')
               @csrf

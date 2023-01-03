@@ -8,13 +8,11 @@
 
         <div class="container mt-4">
           <div class="row">
-            <h5>{{ $user->name }}</h5>
-            <h5>{{ $user->Username }}</h5>
-            <h5>{{ $user->Email }}</h5>
-            <article>
-              
-            </article>
-            <a href="/dashboard/daftar-admin">Kembali ke Dashboard</a>
+              <h5>{{ $pengguna->name }}</h5>
+              <h5>{{ $pengguna->username }}</h5>
+              <h5>{{ $pengguna->email }}</h5>  
+
+            <a href="/dashboard/pengguna">Kembali ke Dashboard</a>
           </div>
         </div>
 

@@ -113,7 +113,6 @@ Route::get('/dashboard/kategori/checkSlug', [AdminKategoriController::class, 'ch
     ['auth', 'user-access:admin']
 );
 
-
 Route::resource('/dashboard/kategori', AdminKategoriController::class)->middleware(
     ['auth', 'user-access:manager'],
     ['auth', 'user-access:admin']
@@ -123,11 +122,17 @@ Route::get('/dashboard/pengguna', [AdminPenggunaController::class, 'index'])->mi
     ['auth', 'user-access:manager'],
     ['auth', 'user-access:admin']
 );
+Route::get('/dashboard/pengguna/{user:username}', [AdminPenggunaController::class, 'show'])->middleware(
+    ['auth', 'user-access:manager'],
+    ['auth', 'user-access:admin']
+);
 Route::resource('/dashboard/pengguna', AdminPenggunaController::class)->middleware(
     ['auth','user-access:manager'],
     ['auth', 'user-access:admin']
 );
 // Daftar Admin
-Route::resource('/dashboard/daftar-admin', AdminController::class)->middleware(['auth','user-access:manager']);
+Route::get('/dashboard/profil', [AdminController::class, 'index'])->middleware(['auth','user-access:manager']);
+Route::get('/dashboard/profil/{user:username}', [AdminController::class, 'show'])->middleware(['auth','user-access:manager']);
 
+Route::resource('/dashboard/daftar-admin', AdminController::class)->middleware(['auth','user-access:manager']);
   
